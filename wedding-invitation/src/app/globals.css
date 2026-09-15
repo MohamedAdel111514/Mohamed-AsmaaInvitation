@@ -31,3 +31,1082 @@ html {
   font-family: var(--font-display);
   color: #c9a961;
 }
+.calendar-section {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(210, 225, 235, 0.45), transparent 20%),
+    radial-gradient(circle at 85% 70%, rgba(244, 213, 216, 0.5), transparent 22%),
+    #f8f5ed;
+}
+
+.calendar-heading {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  color: #8b7890;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+}
+
+.calendar-heading p {
+  margin: 0;
+}
+
+.calendar-heading span {
+  color: #bd9a63;
+  font-size: 14px;
+}
+
+.calendar-section h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 34px;
+  color: #263858;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 6vw, 58px);
+  font-weight: 400;
+  text-align: center;
+}
+
+.calendar-card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 390px);
+  padding: 32px 28px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 22px;
+  background: rgba(255, 255, 250, 0.86);
+  box-shadow: 0 20px 55px rgba(75, 82, 106, 0.14);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.calendar-card h3 {
+  margin: 0 0 25px;
+  color: #414a62;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-weekdays {
+  margin-bottom: 10px;
+  color: #a79683;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+.calendar-day {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  color: #62697a;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+}
+
+.calendar-day:empty {
+  visibility: hidden;
+}
+
+.calendar-day span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.calendar-day:not(:empty):hover span {
+  background: #f3e2d7;
+}
+
+.calendar-day.selected-day span {
+  color: white;
+  background: #687fae;
+  box-shadow: 0 6px 14px rgba(104, 127, 174, 0.35);
+}
+
+.calendar-day small {
+  position: absolute;
+  right: 1px;
+  bottom: -1px;
+  color: #d69598;
+  font-size: 9px;
+}
+
+.calendar-button {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 30px;
+  color: white;
+  background: #657eaf;
+  box-shadow: 0 8px 18px rgba(101, 126, 175, 0.28);
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.calendar-button:hover {
+  background: #526b9d;
+  box-shadow: 0 12px 22px rgba(101, 126, 175, 0.36);
+  transform: translateY(-3px);
+}
+
+.calendar-decoration {
+  position: absolute;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  animation: floatDecoration 5s ease-in-out infinite;
+}
+
+.calendar-decoration-one {
+  top: 17%;
+  left: 15%;
+  color: #b8cde0;
+  font-size: 18px;
+}
+
+.calendar-decoration-two {
+  top: 12%;
+  right: 17%;
+  color: #d89a9a;
+  font-size: 28px;
+  animation-delay: 0.8s;
+}
+
+.calendar-decoration-three {
+  right: 13%;
+  bottom: 20%;
+  color: #e0b1a5;
+  font-size: 20px;
+  animation-delay: 1.4s;
+}
+
+.calendar-decoration-four {
+  bottom: 15%;
+  left: 18%;
+  color: #a9c0d5;
+  font-size: 22px;
+  animation-delay: 2s;
+}
+
+.calendar-flower {
+  position: absolute;
+  color: #d69b9c;
+  font-size: 38px;
+  opacity: 0.7;
+  animation: flowerFloat 4s ease-in-out infinite;
+}
+
+.flower-left {
+  top: 16px;
+  left: 18px;
+  transform: rotate(-20deg);
+}
+
+.flower-right {
+  top: 20px;
+  right: 18px;
+  color: #9eb6c8;
+  transform: rotate(20deg);
+  animation-delay: 1.2s;
+}
+
+.calendar-bottom-decoration {
+  display: flex;
+  gap: 20px;
+  margin-top: 35px;
+  color: #c99d79;
+  font-size: 18px;
+}
+
+.calendar-bottom-decoration span:nth-child(2) {
+  color: #d7979b;
+  font-size: 24px;
+}
+
+@keyframes floatDecoration {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(8deg);
+  }
+}
+
+@keyframes flowerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-20deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(-8deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .calendar-section {
+    min-height: 680px;
+    padding: 75px 16px;
+  }
+
+  .calendar-section h2 {
+    font-size: 39px;
+    margin-bottom: 27px;
+  }
+
+  .calendar-card {
+    padding: 28px 19px 25px;
+  }
+
+  .calendar-decoration-one {
+    left: 7%;
+  }
+
+  .calendar-decoration-two {
+    right: 7%;
+  }
+
+  .calendar-decoration-three {
+    right: 5%;
+  }
+
+  .calendar-decoration-four {
+    left: 7%;
+  }
+}
+/* =========================
+   Wedding Calendar Section
+========================= */
+
+.calendar-section {
+  position: relative;
+  min-height: 760px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  background:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(211, 224, 232, 0.42),
+      transparent 19%
+    ),
+    radial-gradient(
+      circle at 88% 75%,
+      rgba(239, 202, 202, 0.38),
+      transparent 23%
+    ),
+    #f8f3eb;
+}
+
+/* عنوان Save the date */
+.calendar-heading {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+  color: #a18478;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.calendar-heading p {
+  margin: 0;
+}
+
+.calendar-heading span {
+  color: #b99769;
+  font-size: 14px;
+}
+
+/* العنوان الرئيسي */
+.calendar-section h2 {
+  position: relative;
+  z-index: 2;
+  margin: 0 0 34px;
+  color: #3e4b62;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(36px, 6vw, 58px);
+  font-weight: 400;
+  line-height: 1.2;
+  text-align: center;
+}
+
+/* الكارت */
+.calendar-card {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 390px);
+  padding: 34px 28px 30px;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 24px;
+  background: rgba(255, 253, 247, 0.93);
+  box-shadow: 0 20px 55px rgba(92, 84, 78, 0.14);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* اسم الشهر */
+.calendar-card h3 {
+  margin: 0 0 25px;
+  color: #5a6475;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 400;
+  text-align: center;
+}
+
+/* أيام الأسبوع */
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.calendar-weekdays {
+  margin-bottom: 10px;
+  color: #aa9684;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  text-align: center;
+}
+
+/* أيام الشهر */
+.calendar-day {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  color: #5e5a55;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.calendar-day:empty {
+  visibility: hidden;
+}
+
+/* دائرة رقم اليوم */
+.calendar-day span {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: all 0.25s ease;
+}
+
+/* حركة بسيطة عند مرور الماوس */
+.calendar-day:not(:empty):hover span {
+  color: #8f6f63;
+  background: #f1dfd5;
+  transform: scale(1.08);
+}
+
+/* يوم الفرح */
+.calendar-day.selected-day span {
+  color: #ffffff;
+  background: #ad7d78;
+  font-weight: 600;
+  box-shadow: 0 5px 13px rgba(173, 125, 120, 0.32);
+}
+
+/* القلب الموجود بجوار يوم الفرح */
+.calendar-heart {
+  position: absolute;
+  right: 1px;
+  bottom: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  color: #ad7d78;
+  background: #fffaf4;
+  font-family: Arial, sans-serif;
+  font-size: 9px;
+  font-style: normal;
+  line-height: 1;
+}
+
+/* حركة يوم الفرح */
+.calendar-day.selected-day {
+  animation: weddingDayPulse 2.5s ease-in-out infinite;
+}
+
+@keyframes weddingDayPulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+/* زر إضافة الموعد */
+.calendar-button {
+  display: block;
+  width: 100%;
+  margin-top: 30px;
+  padding: 14px 20px;
+  border: 0;
+  border-radius: 30px;
+  color: #ffffff;
+  background: #7185ad;
+  box-shadow: 0 8px 18px rgba(113, 133, 173, 0.28);
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.25s ease;
+}
+
+.calendar-button:hover {
+  background: #5e739f;
+  box-shadow: 0 12px 22px rgba(113, 133, 173, 0.36);
+  transform: translateY(-3px);
+}
+
+/* الزخارف الموجودة حول الكالندر */
+.calendar-decoration {
+  position: absolute;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  animation: floatDecoration 5s ease-in-out infinite;
+}
+
+.calendar-decoration-one {
+  top: 17%;
+  left: 15%;
+  color: #b8cde0;
+  font-size: 18px;
+}
+
+.calendar-decoration-two {
+  top: 12%;
+  right: 17%;
+  color: #d89a9a;
+  font-size: 28px;
+  animation-delay: 0.8s;
+}
+
+.calendar-decoration-three {
+  right: 13%;
+  bottom: 20%;
+  color: #dca9a1;
+  font-size: 20px;
+  animation-delay: 1.4s;
+}
+
+.calendar-decoration-four {
+  bottom: 15%;
+  left: 18%;
+  color: #a9c0d5;
+  font-size: 22px;
+  animation-delay: 2s;
+}
+
+.calendar-decoration-five {
+  top: 42%;
+  left: 7%;
+  color: #d9b28a;
+  font-size: 20px;
+  animation-delay: 1.8s;
+}
+
+.calendar-decoration-six {
+  right: 7%;
+  bottom: 42%;
+  color: #d6979c;
+  font-size: 27px;
+  animation-delay: 2.5s;
+}
+
+/* الورود فوق الكارت */
+.calendar-flower {
+  position: absolute;
+  color: #d69b9c;
+  font-size: 38px;
+  opacity: 0.72;
+  animation: flowerFloat 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.flower-left {
+  top: 14px;
+  left: 18px;
+  transform: rotate(-20deg);
+}
+
+.flower-right {
+  top: 17px;
+  right: 18px;
+  color: #9eb6c8;
+  transform: rotate(20deg);
+  animation-delay: 1.2s;
+}
+
+/* الزخارف أسفل الكارت */
+.calendar-bottom-decoration {
+  display: flex;
+  gap: 20px;
+  margin-top: 35px;
+  color: #c99d79;
+  font-size: 18px;
+}
+
+.calendar-bottom-decoration span:nth-child(2) {
+  color: #d7979b;
+  font-size: 24px;
+}
+
+@keyframes floatDecoration {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-14px) rotate(8deg);
+  }
+}
+
+@keyframes flowerFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-20deg);
+  }
+
+  50% {
+    transform: translateY(-7px) rotate(-8deg);
+  }
+}
+
+/* الموبايل */
+@media (max-width: 600px) {
+  .calendar-section {
+    min-height: 680px;
+    padding: 75px 16px;
+  }
+
+  .calendar-section h2 {
+    margin-bottom: 27px;
+    font-size: 39px;
+  }
+
+  .calendar-card {
+    padding: 30px 19px 25px;
+  }
+
+  .calendar-decoration-one {
+    left: 7%;
+  }
+
+  .calendar-decoration-two {
+    right: 7%;
+  }
+
+  .calendar-decoration-three {
+    right: 5%;
+  }
+
+  .calendar-decoration-four {
+    left: 7%;
+  }
+
+  .calendar-decoration-five {
+    left: 3%;
+  }
+
+  .calendar-decoration-six {
+    right: 3%;
+  }
+}
+/* =========================
+   Hero Section
+========================= */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 20px;
+  background:
+    radial-gradient(
+      circle at 10% 15%,
+      rgba(217, 229, 235, 0.42),
+      transparent 18%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(239, 202, 202, 0.4),
+      transparent 22%
+    ),
+    #f8f3eb;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 900px;
+  text-align: center;
+}
+
+.hero-subtitle {
+  margin: 0 0 25px;
+  color: #a18478;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+}
+
+.couple-photos {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 25px auto 38px;
+}
+
+/* الفريم الأساسي */
+.photo-frame {
+  position: relative;
+  width: 150px;
+  height: 205px;
+  padding: 9px;
+  border: 1px solid rgba(177, 145, 125, 0.55);
+  border-radius: 78px 78px 22px 22px;
+  background: #fffaf2;
+  box-shadow:
+    0 14px 28px rgba(86, 71, 66, 0.18),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.7);
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.groom-frame {
+  transform: rotate(-3deg);
+}
+
+.bride-frame {
+  transform: rotate(3deg);
+}
+
+.photo-frame:hover {
+  z-index: 5;
+  box-shadow:
+    0 20px 35px rgba(86, 71, 66, 0.25),
+    inset 0 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.groom-frame:hover {
+  transform: rotate(-3deg) translateY(-8px) scale(1.03);
+}
+
+.bride-frame:hover {
+  transform: rotate(3deg) translateY(-8px) scale(1.03);
+}
+
+/* الجزء الداخلي للصورة */
+.photo-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 68px 68px 15px 15px;
+  background: #eadfd4;
+}
+
+/* الصور */
+.couple-photo {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.photo-frame:hover .couple-photo {
+  transform: scale(1.06);
+}
+
+/* الورود */
+.photo-flower {
+  position: absolute;
+  z-index: 5;
+  color: #d79798;
+  font-size: 35px;
+  line-height: 1;
+  filter: drop-shadow(0 3px 3px rgba(120, 80, 80, 0.15));
+  animation: photoFlowerFloat 4s ease-in-out infinite;
+}
+
+.flower-top-left {
+  top: -22px;
+  left: -19px;
+  transform: rotate(-25deg);
+}
+
+.flower-bottom-right {
+  right: -19px;
+  bottom: -19px;
+  color: #c9a174;
+  font-size: 30px;
+  transform: rotate(20deg);
+  animation-delay: 0.8s;
+}
+
+.flower-top-right {
+  top: -22px;
+  right: -19px;
+  color: #d79798;
+  transform: rotate(25deg);
+  animation-delay: 1.1s;
+}
+
+.flower-bottom-left {
+  bottom: -19px;
+  left: -19px;
+  color: #9db6c8;
+  font-size: 30px;
+  transform: rotate(-20deg);
+  animation-delay: 1.8s;
+}
+
+/* الأوراق */
+.photo-leaf {
+  position: absolute;
+  z-index: 4;
+  color: #8da98c;
+  font-size: 34px;
+  line-height: 1;
+  opacity: 0.85;
+}
+
+.leaf-left {
+  top: 26px;
+  right: -21px;
+  transform: rotate(45deg);
+}
+
+.leaf-right {
+  top: 27px;
+  left: -21px;
+  transform: rotate(-45deg);
+}
+
+/* القلوب */
+.photo-heart {
+  position: absolute;
+  z-index: 6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  color: #c78386;
+  background: #fffaf2;
+  box-shadow: 0 4px 10px rgba(116, 79, 79, 0.16);
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
+.heart-groom {
+  top: 74px;
+  right: -14px;
+}
+
+.heart-bride {
+  bottom: 58px;
+  left: -14px;
+}
+
+/* علامة & */
+.couple-and {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  color: #ad7d78;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 25px;
+  font-style: italic;
+}
+
+/* الاسم */
+.hero-title {
+  margin: 0;
+  color: #3e4b62;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(38px, 6vw, 62px);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.hero-title span {
+  color: #b78a83;
+  font-style: italic;
+}
+
+/* الوصف */
+.hero-description {
+  max-width: 500px;
+  margin: 18px auto 15px;
+  color: #8d8881;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+/* التاريخ */
+.hero-date {
+  margin: 0;
+  color: #a18478;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+
+/* رابط النزول */
+.hero-scroll {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin-top: 34px;
+  color: #9d9087;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 10px;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.hero-scroll:hover {
+  color: #ad7d78;
+}
+
+.hero-scroll span {
+  color: #b99769;
+  font-size: 17px;
+}
+
+/* زخارف الخلفية */
+.hero-background-decoration {
+  position: absolute;
+  z-index: 1;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  animation: heroDecorationFloat 5s ease-in-out infinite;
+}
+
+.decoration-top-left {
+  top: 15%;
+  left: 12%;
+  color: #b8cde0;
+  font-size: 20px;
+}
+
+.decoration-top-right {
+  top: 18%;
+  right: 12%;
+  color: #d89a9a;
+  font-size: 30px;
+  animation-delay: 1s;
+}
+
+.decoration-bottom-left {
+  bottom: 18%;
+  left: 15%;
+  color: #d6979c;
+  font-size: 25px;
+  animation-delay: 1.8s;
+}
+
+.decoration-bottom-right {
+  right: 15%;
+  bottom: 15%;
+  color: #b8cde0;
+  font-size: 21px;
+  animation-delay: 2.5s;
+}
+
+/* الحركات */
+@keyframes photoFlowerFloat {
+  0%,
+  100% {
+    margin-top: 0;
+  }
+
+  50% {
+    margin-top: -5px;
+  }
+}
+
+@keyframes heroDecorationFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+
+/* الموبايل */
+@media (max-width: 600px) {
+  .hero-section {
+    min-height: 100vh;
+    padding: 65px 16px;
+  }
+
+  .couple-photos {
+    gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .photo-frame {
+    width: 125px;
+    height: 178px;
+  }
+
+  .couple-and {
+    width: 23px;
+    font-size: 21px;
+  }
+
+  .photo-flower {
+    font-size: 29px;
+  }
+
+  .flower-top-left,
+  .flower-top-right {
+    top: -18px;
+  }
+
+  .flower-bottom-left,
+  .flower-bottom-right {
+    bottom: -16px;
+    font-size: 26px;
+  }
+
+  .photo-leaf {
+    font-size: 27px;
+  }
+
+  .photo-heart {
+    width: 23px;
+    height: 23px;
+    font-size: 17px;
+  }
+
+  .heart-groom {
+    right: -11px;
+  }
+
+  .heart-bride {
+    left: -11px;
+  }
+
+  .hero-title {
+    font-size: 39px;
+  }
+
+  .hero-description {
+    max-width: 330px;
+    font-size: 11px;
+  }
+
+  .decoration-top-left {
+    left: 5%;
+  }
+
+  .decoration-top-right {
+    right: 5%;
+  }
+
+  .decoration-bottom-left {
+    left: 5%;
+  }
+
+  .decoration-bottom-right {
+    right: 5%;
+  }
+}

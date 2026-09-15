@@ -1,7 +1,7 @@
 import SectionReveal from "./SectionReveal";
 
 const dateISO = process.env.NEXT_PUBLIC_WEDDING_DATE || "2026-11-10T19:00:00+02:00";
-const venue = process.env.NEXT_PUBLIC_VENUE_NAME || "Sea Rena Hall";
+const venue = process.env.NEXT_PUBLIC_VENUE_NAME || "Sea Star Hall";
 const mapsUrl = process.env.NEXT_PUBLIC_GOOGLE_MAPS_URL || "#";
 
 const dateObj = new Date(dateISO);

@@ -6,11 +6,14 @@ import RSVPForm from "@/components/RSVPForm";
 import LocationSection from "@/components/LocationSection";
 import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
+import CalendarSection from "@/components/CalendarSection";
+
 
 export default function HomePage() {
   return (
     <main>
       <Hero />
+      <CalendarSection />
       <WeddingDetails />
       <Countdown />
       <Gallery />
