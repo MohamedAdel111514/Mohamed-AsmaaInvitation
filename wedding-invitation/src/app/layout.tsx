@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
-// The stylesheet is handled by Next.js at build time; suppress editor resolution
-// errors when CSS type declarations are not available in the current environment.
-// @ts-expect-error CSS side-effect imports are supported by Next.js.
+
+// @ts-expect-error - CSS imports are handled by Next.js
 import "./globals.css";
 
 const display = Cormorant_Garamond({
