@@ -108,14 +108,8 @@ export async function sendWhatsAppConfirmation(
         to,
         type: "text",
         text: {
-          preview_url: true,
-          body:
-            `Hello ${name} ❤️\n\n` +
-            `Your attendance has been successfully confirmed for the wedding of ${groom} & ${bride}.\n\n` +
-            `📅 Date: ${formattedDate}\n` +
-            `📍 Venue: ${venue}\n\n` +
-            `📌 Location:\n${mapsUrl}\n\n` +
-            `We can't wait to celebrate with you! ❤️`,
+          preview_url: false,
+           body: `Test message ${Date.now()}`,
         },
       };
 
@@ -129,7 +123,24 @@ export async function sendWhatsAppConfirmation(
       body: JSON.stringify(body),
     });
 
-    const data = await res.json();
+      const data = await res.json();
+
+    // Temporary debug logging — remove once WhatsApp delivery is confirmed
+    // working end-to-end. Shows exactly what Meta's API returned.
+        console.log(
+      "WhatsApp API call:",
+      JSON.stringify(
+        {
+          url,
+          to,
+          phoneNumberIdUsed: phoneNumberId,
+          status: res.status,
+          responseBody: data,
+        },
+        null,
+        2
+      )
+    );
 
     if (!res.ok) {
       const message =
