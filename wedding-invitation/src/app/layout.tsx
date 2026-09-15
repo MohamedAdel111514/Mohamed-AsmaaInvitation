@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 
-// @ts-expect-error - CSS imports are handled by Next.js
 import "./globals.css";
 
 const display = Cormorant_Garamond({
